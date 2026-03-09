@@ -1,23 +1,16 @@
-def main():
-    print('Hello, World!')  # Печатает приветственное сообщение
-    numbers = get_numbers()
-    if numbers:
-        numbers.sort()
-        print("Sorted numbers:", numbers)
-    else:
-        print("No numbers entered.")
+import lib
 
-def get_numbers():
-    numbers = []
-    while True:
-        value = input("Enter a number (or 'done' to finish): ")  # Запрашивает ввод числа или 'done' для завершения
-        if value.lower() == 'done':
-            break
-        if value.isdigit() and int(value) > 0:
-            numbers.append(int(value))
-        else:
-            print("Invalid input, please enter a positive integer.")
-    return numbers
+def main():  # Главная функция программы
+    lib.HelloWorldPrint()  # Вызывает функцию для вывода приветствия
+    
+    numbers = lib.GetNumbers()  # Получает список чисел от пользователя
+    if numbers:  # Если список содержит числа
+        numbers.sort()  # Сортирует числа в порядке возрастания
+        print("Sorted numbers:", numbers)  # Выводит отсортированный список
+    else:  # Иначе
+        print("No numbers entered.")  # Выводит сообщение, что чисел не введено
+    
+    lib.GetFactorial()  # Получает и вычисляет факториал
 
 if __name__ == "__main__":
     main()
